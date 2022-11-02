@@ -1,0 +1,29 @@
+<div>
+    <select [(ngModel)]='AlbamSelected'(ngModelChange)='onAlbumSelected($event)' >
+        <option *ngFor='let album of lstAlbums' [value]="album.id">
+            {{album.title}}
+
+        </option>
+    </select>
+</div>
+<br><br>
+<div>
+    The selected Album id is :: {{AlbamSelected}}
+</div>
+
+<h3>Get photos for albums</h3>
+<table class="table">
+    <tr>
+        <th class="table">Id</th>
+        <th class="table">AlbumId</th>
+        <th class="table">Title</th>
+          <td class="table">ThumbNail</td>
+    </tr>
+
+    <tr *ngFor="let photo of lstPhotos">
+        <td class="table">{{photo.id}}</td>
+        <td class="table">{{photo.albumId}}</td>
+        <td class="table">{{photo.title}}</td>
+        <td class="table"><img src="{{photo.thumbnaiUrl}}"></td>
+    </tr>
+</table>
